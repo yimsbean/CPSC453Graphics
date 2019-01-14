@@ -1,0 +1,81 @@
+Part 1:
+
+Video on email/piazza
+
+- Tesselation shader
+    - Can use a shader to generate the sphere
+- C++
+    - Don't have to use a shader to generate a sphere
+- Blender model
+    - Use Blender, a modeling tool
+    - OBJ formats
+        - Many resources to get a sphere in OBJ format and render it in OpenGL
+
+Blender 2.79 on Linux servers
+
+Click on cube -> press delete -> OK
+Add -> Mesh -> UV Sphere
+
+Segments - vertical
+Rings - Horizontal
+
+Middle mouse to rotate
+Scroll to zoom
+
+Drag from right to vertical split view
+
+Cube on bottom left -> UV/Image editor
+
+Pick tecture .PNG you want of Earth.
+
+Change to edit mode
+
+To make the triangle mesh scale to the texture scale
+s - scale mode
+x/y/c - translate along that axis only
+g - grab mode
+
+# Blender HTL File: 'None'
+# Material Count: 1
+newmtl None
+Ns 0
+Ka 0.0 0.0 0.0
+Kd 0.8 0.8 0.8
+...
+
+Need to be able to parse an obj file. Google it. Read it, and take the parts we want
+for OpenGL
+# is a comment
+o object
+v vertices
+
+If a new line starts with v, then the next 3 things in line are floats to read
+
+vt uv coordinates
+u and then v values
+
+vn normal for each vertex
+Already normalized
+
+f face
+Each component is a triplet
+1st is index into coordinate array
+    position/uv/normal
+2nd data
+3rd data
+
+Part 2:
+
+Figuring out what points in the texture, correspond to what triangles in the
+sphere.
+____________
+|         /|
+|        / |
+|       /  |
+|      /   |
+|     /    |
+|    /     |
+|   /      |
+|  /       |
+| /        |
+|/_________|
